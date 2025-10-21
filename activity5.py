@@ -18,11 +18,12 @@
 
 file = open('CROSSWD.txt','r')
 
-def twenty_or_more(file):
+def more_than_20(file):
     file = open(file,'r')
-    print([x.strip() for x in file if len(x.strip()) > 20])
+    words = ([x.strip() for x in file if len(x.strip()) > 20])
+    return words
    
-result = twenty_or_more('CROSSWD.txt')   
+result = more_than_20('CROSSWD.txt')   
         
 def has_no_e(word):
     # word = open(word,'r')
@@ -32,11 +33,24 @@ def has_no_e(word):
     else:
         return True
     
-print(has_no_e('loud'))
+# print(has_no_e('loud'))
 
 def uses_only(word,letters):
     for x in word:
         if x not in letters:
             return False
     return True
+
+# print(uses_only('happy','py'))
+
+
+def all_uses_only(file,letters):
+    file = open(file,'r')
+    # for x in file:
+    words = [x.strip() for x in file if uses_only(x.strip(),letters) == True]
+        # if uses_only(x,letters) == True:
+        #     x = x.append
+    return words
+        
+# print(all_uses_only('CROSSWD.txt','funy'))
 
